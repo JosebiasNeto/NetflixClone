@@ -5,7 +5,11 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.netflixclone.databinding.ActivityFormCadastroBinding
 import com.google.firebase.FirebaseApiNotAvailableException
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthEmailException
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
 class FormCadastro : AppCompatActivity() {
 
@@ -49,7 +53,16 @@ class FormCadastro : AppCompatActivity() {
                 mensagem.setText("")
             }
         }.addOnFailureListener{
-            mensagem.setText("Erro ao cadastrar usuário.")
+
+            var erro = it
+
+            when{
+                erro is FirebaseAuthWeakPasswordException -> mensagem.setText("Digite uma senha com no mínimo 6 caracteres")
+                erro is FirebaseAuthUserCollisionException -> mensagem.setText("Esta conta já foi cadastrada")
+                erro is FirebaseNetworkException -> mensagem.setText("Sem conexão com a Internet")
+                else -> mensagem.setText("Erro ao cadastrar usuário.")
+            }
+
         }
 
     }
