@@ -60,6 +60,7 @@ class FormCadastro : AppCompatActivity() {
                 erro is FirebaseAuthWeakPasswordException -> mensagem.setText("Digite uma senha com no mínimo 6 caracteres")
                 erro is FirebaseAuthUserCollisionException -> mensagem.setText("Esta conta já foi cadastrada")
                 erro is FirebaseNetworkException -> mensagem.setText("Sem conexão com a Internet")
+
                 else -> mensagem.setText("Erro ao cadastrar usuário.")
             }
 
