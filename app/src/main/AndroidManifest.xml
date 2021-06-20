@@ -11,11 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NetflixClone">
-        <activity android:name=".DetalhesFilme"/>
-        <activity android:name=".ListaFilmes" />
-        <activity android:name=".FormCadastro" />
-        <activity android:name=".FormLogin" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Video"></activity>
+        <activity
+            android:name=".DetalhesFilme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ListaFilmes"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FormCadastro"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FormLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

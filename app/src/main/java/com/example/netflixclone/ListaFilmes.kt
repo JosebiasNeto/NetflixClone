@@ -14,6 +14,7 @@ import com.example.netflixclone.OnClick.OnItemClickListener
 import com.example.netflixclone.OnClick.addOnItemClickListener
 import com.example.netflixclone.databinding.ActivityListaFilmesBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.example.netflixclone.DetalhesFilme
 
 class ListaFilmes : AppCompatActivity() {
 
@@ -30,14 +31,14 @@ class ListaFilmes : AppCompatActivity() {
         recycler_filmes.addOnItemClickListener(object: OnItemClickListener {
             override fun onItemClicked(position: Int, view: View) {
                 when{
-                    position == 0 -> DetalhesFilme()
+                    position == 0 -> DetalhesFilmeFun()
 
                 }
             }
         })
     }
 
-    private fun DetalhesFilme(){
+    private fun DetalhesFilmeFun(){
         val intent = Intent(this, DetalhesFilme()::class.java)
         startActivity(intent)
     }
